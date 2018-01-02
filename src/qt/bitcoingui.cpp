@@ -173,7 +173,7 @@ BitcoinGUI::BitcoinGUI(bool fIsTestnet, QWidget *parent):
     labelEncryptionIcon = new QLabel();
     labelMintingIcon = new QLabel();
     labelConnectionsIcon = new QLabel();
-    labelBlocksIcon = new QLabel();    
+    labelBlocksIcon = new QLabel();
 
     if (SHOW_CLOAKING_ICONS)
     {
@@ -306,14 +306,13 @@ BitcoinGUI::BitcoinGUI(bool fIsTestnet, QWidget *parent):
     statusBar()->addWidget(progressBar);
     statusBar()->addPermanentWidget(frameBlocks);
     statusBar()->setObjectName("cloakStatusBar");
-    statusBar()->setStyleSheet("#cloakStatusBar { border-top-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #4B2F32, stop:0.5 #8B4F62, stop:1.0 #8B4F62); "
-                               "border-top-width: 2px; border-top-style: inset; background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 #663333, stop:0.5 #321616, stop:1.0 #110000); "
-                               "background-image: url(:images/shadowbar); background-repeat: repeat-x; background-position: bottom center; color: #ff9999; } "
+    statusBar()->setStyleSheet("#cloakStatusBar { border-top-color: #10273B; "
+                               "border-top-width: 2px; border-top-style: inset; background-color: #10273B; color: #ff9999; } "
                                "QToolTip { color: #ff9999; background-color: #331515; border-width: 1px;border-color:#CA0D0D;}"
                                "QStatusBar::item { border: 0px solid black };");
 
     syncIconMovie = new QMovie(":/movies/update_spinner", "mng", this);
-    // this->setStyleSheet("background-color: #effbef;");
+    // this->setStyleSheet("background-color: #effbef;")
 
     // Clicking on a transaction on the overview page simply sends you to transaction history page
     connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), this, SLOT(gotoHistoryPage()));
@@ -506,7 +505,7 @@ void BitcoinGUI::createMenuBar()
     help->addAction(aboutAction);
     help->addAction(aboutQtAction);
 
-    // QString ss("QMenuBar::item { background-color: #effbef; color: black }"); 
+    // QString ss("QMenuBar::item { background-color: #effbef; color: black }");
     // appMenuBar->setStyleSheet(ss);
 }
 
@@ -1256,7 +1255,7 @@ void BitcoinGUI::updateMintingIcon()
     }
     else
     {
-        labelPosaIcon->setToolTip(tr("Connected.<br><b>%1</b> anons.<br><b>%2</b> cloakings.").arg(nEnigmaNodeCount).arg(pwalletMain->EnigmaCount()));        
+        labelPosaIcon->setToolTip(tr("Connected.<br><b>%1</b> anons.<br><b>%2</b> cloakings.").arg(nEnigmaNodeCount).arg(pwalletMain->EnigmaCount()));
         labelPosaIcon->setEnabled(true);
     }
 
